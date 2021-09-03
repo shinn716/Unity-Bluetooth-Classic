@@ -7,15 +7,13 @@
 
 BluetoothSerial SerialBT;
 
-char val;
-int intVal;
-
 void setup() {
   Serial.begin(115200); // opens serial port, sets data rate to 9600 bps
-  SerialBT.begin("ESP32test"); //Bluetooth device name
+  SerialBT.begin("ESP32_ForTest"); //Bluetooth device name
   Serial.println("The device started, now you can pair it with bluetooth!");
   pinMode(LED_BUILTIN, OUTPUT);
 
+  // Init Led singal
   digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(1000);                       // wait for a second
   digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
@@ -27,29 +25,25 @@ void setup() {
   delay(1000);
 }
 
-void loop() {
-  // send data only when you receive data:
-  if (Serial.available())
-  {
-    intVal = Serial.read();
-    SerialBT.write(intVal);
-  }
-
-
+void loop()
+{
   if (SerialBT.available())
   {
-    intVal = SerialBT.read();
-    Serial.println(intVal);
-    Serial.print("Debug");
-    Serial.println(intVal+5);
-    
-    if (val == 1) {
+    String message = SerialBT.readString().trim();
+
+    // Send to Unity
+    SerialBT.println(message);
+
+    // Receive from Unity
+    if (message == "0")
+    {
+      digitalWrite(LED_BUILTIN, LOW);   // turn the LED on (HIGH is the voltage level)
+    }
+    else if (message == "1")
+    {
       digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-    } else if (val == 0) {
-      digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
     }
   }
-
 
   delay(20);
 }
