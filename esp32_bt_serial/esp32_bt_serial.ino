@@ -29,10 +29,12 @@ void loop()
 {
   if (SerialBT.available())
   {
-    String message = SerialBT.readString().trim();
+    String message = SerialBT.readString();
+    message.trim();
 
     // Send to Unity
-    SerialBT.println(message);
+    // SerialBT.println(message);
+    SerialBT.print(message);
 
     // Receive from Unity
     if (message == "0")
@@ -44,6 +46,5 @@ void loop()
       digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
     }
   }
-
   delay(20);
 }
