@@ -1,4 +1,4 @@
-# Arduino_BT_Serial
+# Unity-Bluetooth-Classic
 Unity Bluetooth classic sample  
 Support Windows/Android  
 
