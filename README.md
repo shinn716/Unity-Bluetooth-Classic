@@ -1,5 +1,6 @@
 # Arduino_BT_Serial
-HC06 / ESP32, BT Serial Sample
+Unity Bluetooth classic sample  
+Support Windows/Android  
 
-- ESP32:  
-https://www.youtube.com/watch?v=mBaS3YnqDaU
+Android BT-lib from:  
+https://github.com/badranX/bt-lib  
