@@ -1,5 +1,6 @@
 # Unity-Bluetooth-Classic  
 Unity Bluetooth classic sample   
+MCU ESP32  
 Support Windows/Android  
   
 ## BT for android  
