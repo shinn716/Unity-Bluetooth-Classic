@@ -1,7 +1,7 @@
 # Unity-Bluetooth-Classic  
 Unity Bluetooth classic sample   
 MCU ESP32  
-Support Windows/Android  
+Support Windows/Android/OculusQuest2  
   
 ## BT for android  
 <img src="https://github.com/shinn716/Unity-Bluetooth-Classic/blob/main/UnityBT_android.gif" /></a>  
